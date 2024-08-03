@@ -6,9 +6,6 @@
 // else statement
 // else if statement
 
-//
-// Legal loterry from age
-//
 
 int main (){
     // using namespace std;
@@ -48,6 +45,5 @@ int main (){
         cin >> agev;
         return 0;
     }
-
     return 0;
 }
