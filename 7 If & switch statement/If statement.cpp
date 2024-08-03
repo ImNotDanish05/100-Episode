@@ -12,10 +12,10 @@
 
 int main (){
     // using namespace std;
-    std::cout << "MrBeast Chocolate Feastable!" << std::endl;
+    std::cout << "" << std::endl;
 
     using namespace std;
-    cout << "Welcome! you scan our barcode from Feastable that you are buying to HAVE A CHANCE TO WIN LAMBORGINI!!!!" << endl;
+    cout << "" << endl;
 
     // If statement
 
@@ -28,23 +28,23 @@ int main (){
     cout << "Type Y for Yes" << endl << "Type N for No" << endl;
     cin >> agev;
     if (agev == "Y"){
-        cout << "You are not allowed to join MrBeast Loterry. Please wait until u are legal to not get scam from us" << endl;
+        cout << "You can't enter because u are underage" << endl;
         return 0;
     }
     else{
-        cout << "Okay you are legal, you can join our MrBeast Loterry to win Lamborgini" << endl;
+        cout << "Okay you are legal" << endl;
         cout << "Please press ENTER if you want to start spinning" << endl;
         cin.ignore();
         cin.get();
         random_device randomnumber;
         mt19937 gen(randomnumber());
-        uniform_int_distribution<> x(1, 10);
+        uniform_int_distribution<> x(0, 9);
         int random1 = x(gen);
         int random2 = x(gen);
         int random3 = x(gen);
 
         cout << random1 << " " << random2 << " " << random3 << endl;
-        cout << "Noo, you lose. Dont worry, you can buy more Chocolate to have a high chance to win!" << endl;
+        cout << "You lose spinning" << endl;
         cin >> agev;
         return 0;
     }
