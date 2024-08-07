@@ -1,9 +1,9 @@
 #include <iostream>
-// #include <cmath> (For 'pow' function)
+#include <cmath>
 using namespace std;
 
 double CalculateFinalAmount(int x);
-double CalculatePrincipalAmount();
+double CalculatePrincipalAmount(int x);
 int BeautifullLine(int x){
     cout << " " << endl;
     cout << "====================" << endl;
@@ -28,14 +28,26 @@ int PromptValues(int AskFunction){
             cout << "There is no '" << AskFunction << "' on this function" << endl;
             PromptValues(0);
         }
-        case 1: int Result; Result = CalculateFinalAmount(0); BeautifullLine(1);
+        double Result;
+        case 1:
+        Result = CalculateFinalAmount(0);
+        BeautifullLine(1);
         cout << "[Result]" << endl;
         cout << "Final Amount of Money: " << Result << endl;
         cout << "Press Enter to go back" << endl;
         cin.ignore();
         cin.get();
         return 1;
-        case 2: break;
+        case 2:
+        
+        Result = CalculatePrincipalAmount(0);
+        BeautifullLine(1);
+        cout << "[Result]" << endl;
+        cout << "Principal Amount of Money: " << Result << endl;
+        cout << "Press Enter to go back" << endl;
+        cin.ignore();
+        cin.get();
+        return 1;
     }
 }
 
@@ -45,7 +57,7 @@ double CalculateFinalAmount(int x){
     double InterestRate;
     int Time;
     int YTime; //How much you got IR per year
-    double result;
+    // double Result;
     cout << "[Compound Interest]" << endl;
     cout << "Please write the data" << endl;
     cout << "Starting balance: ";
@@ -56,16 +68,54 @@ double CalculateFinalAmount(int x){
     cin >> Time;
     cout << "Compound Rate: ";
     cin >> YTime;
-    double Answer1 = 1 + (InterestRate / YTime);
-    for (int i = 1; i < YTime * Time;){
-        Answer1 = Answer1 * Answer1;
-    }
-    // result = StartingBalance * pow(1 + (InterestRate / YTime), YTime * Time);
-    return result;
+    double Result = StartingBalance * pow(1 + (InterestRate / YTime), YTime * Time);
+
+    // double Answer1 = (1 + (InterestRate / YTime));
+    // for (int i = 1; i < YTime * Time; i++){
+    //     Answer1 *= (1 + (InterestRate / YTime));
+    // }
+    // double Result = StartingBalance * Answer1;
+
+    // double Answer1 = (1 + (InterestRate / YTime));
+    // cout << Answer1 << endl;
+    // for (int i = 1; i < YTime * Time; i++) {
+
+    //     Answer1 *= (1 + (InterestRate / YTime));
+    //     cout << Answer1 << " -> " << i << endl; 
+    // }
+    // double Result = StartingBalance * Answer1;
+    // cout << " " << endl;
+    // cout << Result << endl;
+    // cout << Answer1 << " * " << StartingBalance << endl;
+    // int i = 0 in 2 years, 0 & 1
+
+    return Result;
 
 }
-double CalculatePrincipalAmount(){}
+double CalculatePrincipalAmount(int x){
+    BeautifullLine(1);
+    double FinalCompound;
+    double InterestRate;
+    int Time;
+    int YTime; //How much you got IR per year
+    // double Result;
+    // We try to find Starter Balance
+    cout << "[Principal Amount]" << endl;
+    cout << "Please write the data" << endl;
+    cout << "Final Compound: ";
+    cin >> FinalCompound;
+    cout << "Interest Rate: ";
+    cin >> InterestRate;
+    cout << "Time in Year: ";
+    cin >> Time;
+    cout << "Compound Rate: ";
+    cin >> YTime;
+    // Principal = Amount / (1+(r/n))^nt
+    double Result = FinalCompound / pow(1 + (InterestRate/YTime), YTime * Time);
+    cout << Result << endl;
+    return Result;
 
+}
 
 
 int main(){
