@@ -48,6 +48,9 @@ int PromptValues(int AskFunction){
         cin.ignore();
         cin.get();
         return 1;
+        default: 
+        cout << "There is no '" << AskFunction << "' on this function" << endl;
+        return 1;
     }
 }
 
